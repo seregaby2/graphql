@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
-import { IBand } from '../interface';
+import { IArtists, IBand } from '../interface';
 
 export const methodDelete = async (
   url: string,
   path: string,
-  data: IBand,
+  data: IBand | IArtists,
   token: string,
 ) => {
   const res = await fetch(`${url}${path}/${data.id}`, {
@@ -15,6 +15,5 @@ export const methodDelete = async (
     },
   });
   const response = await res.json();
-  console.log(response, 'delete', data);
   return response;
 };

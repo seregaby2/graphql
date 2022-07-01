@@ -1,11 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import fetch from 'node-fetch';
-import { IBand } from '../interface';
+import { IArtists, IBand } from '../interface';
 
 export const methodUpdate = async (
   url: string,
   path: string,
-  data: IBand,
+  data: IBand | IArtists,
   token: string,
 ) => {
   const res = await fetch(`${url}${path}/${data.id}`, {
@@ -17,6 +17,5 @@ export const methodUpdate = async (
     },
   });
   const response = await res.json();
-  console.log(response, 'resp', data);
   return response;
 };

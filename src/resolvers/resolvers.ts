@@ -1,30 +1,15 @@
 /* eslint-disable no-underscore-dangle */
-import { IBand, IContext, IUser } from '../interface';
-import { methodDelete } from '../utils/delete';
-import { methodGet } from '../utils/get';
+import { IContext, IUser } from '../interface';
+import {
+  createArtist, deleteArtist, getArtist, updateArtist,
+} from '../model/artist';
+import {
+  createBand, deleteBand, getBand, updateBand,
+} from '../model/band';
+
 import { methodPost } from '../utils/post';
-import { methodUpdate } from '../utils/update';
-import { URL_BAND, URL_USER } from '../variables';
 
-const getBand = async () => {
-  const res: IBand[] = await methodGet(URL_BAND);
-  return res;
-};
-
-const createBand = async (_:null, data:any, context: IContext) => {
-  const res = await methodPost(URL_BAND, '', data, context.token);
-  return res;
-};
-
-const updateBand = async (_:null, data: IBand, context: IContext) => {
-  const res = await methodUpdate(URL_BAND, '', data, context.token);
-  return res;
-};
-
-const deleteBand = async (_:null, data: IBand, context: IContext) => {
-  const res = await methodDelete(URL_BAND, '', data, context.token);
-  return res;
-};
+import { URL_USER } from '../variables';
 
 const register = async (_:null, data:any, context: IContext) => {
   const res: IUser = await methodPost(URL_USER, '/register', data, context.token);
@@ -39,8 +24,12 @@ const login = async (_:null, data:any, context: IContext) => {
 export const resolvers = {
   Query: {
     getBand,
+    getArtist,
   },
   Band: {
+    id: (parent: { _id: string; }) => parent._id,
+  },
+  Artist: {
     id: (parent: { _id: string; }) => parent._id,
   },
   Mutation: {
@@ -49,5 +38,8 @@ export const resolvers = {
     createBand,
     updateBand,
     deleteBand,
+    createArtist,
+    updateArtist,
+    deleteArtist,
   },
 };

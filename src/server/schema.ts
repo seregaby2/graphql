@@ -2,16 +2,22 @@ import { gql } from 'apollo-server';
 
 export const typeDefs = gql`
 type Query {
-  getBand: [Band]
+  getBand: [Band],
+  getArtist: [Artist]
 }
 
 
 type Mutation {
   register(firstName: String!, lastName: String!, password: String!, email: String!): User
   login(email: String!, password: String!): Jwt
+
   createBand(name: String!, origin: String, website: String, genres: [String]): Band
   updateBand(id: ID!, name: String!, origin: String, website: String, genresIds: [String]): Band
   deleteBand(id: String!): Band
+
+  createArtist(firstName: String!, secondName: String!, middleName: String, birthDate: String, birthPlace: String, country: String!, bands: [String], instruments: [String]): Artist
+  updateArtist(id: ID!, firstName: String, secondName: String, middleName: String, birthDate: String, birthPlace: String, country: String, bands: [String], instruments: [String]): Artist
+  deleteArtist(id: ID!): Artist
 }
 
 type Artist {
