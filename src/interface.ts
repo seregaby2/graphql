@@ -28,6 +28,14 @@ export interface IUser {
   email: string;
 }
 
+export interface IGenre {
+  id?: string;
+  name?: string;
+  description?: string;
+  country?: string;
+  year?: number;
+}
+
 export interface IContext {
   token: string
 }

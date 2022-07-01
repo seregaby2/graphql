@@ -5,6 +5,9 @@ import {
 import {
   createBand, deleteBand, getBands, updateBand,
 } from '../model/band';
+import {
+  createGenre, deleteGenre, getGenre, updateGenre,
+} from '../model/genre';
 import { getUsers, login, register } from '../model/user';
 
 export const resolvers = {
@@ -12,11 +15,18 @@ export const resolvers = {
     getBands,
     getArtists,
     getUsers,
+    getGenre,
   },
   Band: {
     id: (parent: { _id: string; }) => parent._id,
   },
   Artist: {
+    id: (parent: { _id: string; }) => parent._id,
+  },
+  User: {
+    id: (parent: { _id: string; }) => parent._id,
+  },
+  Genre: {
     id: (parent: { _id: string; }) => parent._id,
   },
   Mutation: {
@@ -28,5 +38,8 @@ export const resolvers = {
     createArtist,
     updateArtist,
     deleteArtist,
+    createGenre,
+    updateGenre,
+    deleteGenre,
   },
 };

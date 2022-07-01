@@ -4,7 +4,8 @@ export const typeDefs = gql`
 type Query {
   getBands: [Band],
   getArtists: [Artist]
-  getUsrs: [User]
+  getUsers: User
+  getGenre: [Genre]
 
 }
 
@@ -20,6 +21,10 @@ type Mutation {
   createArtist(firstName: String!, secondName: String!, middleName: String, birthDate: String, birthPlace: String, country: String!, bands: [String], instruments: [String]): Artist
   updateArtist(id: ID!, firstName: String, secondName: String, middleName: String, birthDate: String, birthPlace: String, country: String, bands: [String], instruments: [String]): Artist
   deleteArtist(id: ID!): Artist
+
+  createGenre(name: String!, description: String, country: String, year: Int): Genre
+  updateGenre(name: String, description: String, country: String, year: Int): Genre
+  deleteGenre(id: String!): Genre
 }
 
 type Artist {
@@ -47,6 +52,13 @@ type User {
   lastName: String
   password: String!
   email: String!
+}
+type Genre {
+  id: ID!
+  name: String
+  description: String
+  country: String
+  year: Int
 }
 type Jwt {
   jwt: String!

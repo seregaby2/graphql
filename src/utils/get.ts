@@ -8,5 +8,6 @@ export const methodGet = async (url: string) => {
     },
   });
   const response = await data.json();
+  console.log(response, 'get', url);
   return response.items;
 };
