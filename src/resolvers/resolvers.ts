@@ -1,30 +1,17 @@
 /* eslint-disable no-underscore-dangle */
-import { IContext, IUser } from '../interface';
 import {
-  createArtist, deleteArtist, getArtist, updateArtist,
+  createArtist, deleteArtist, getArtists, updateArtist,
 } from '../model/artist';
 import {
-  createBand, deleteBand, getBand, updateBand,
+  createBand, deleteBand, getBands, updateBand,
 } from '../model/band';
-
-import { methodPost } from '../utils/post';
-
-import { URL_USER } from '../variables';
-
-const register = async (_:null, data:any, context: IContext) => {
-  const res: IUser = await methodPost(URL_USER, '/register', data, context.token);
-  return res;
-};
-
-const login = async (_:null, data:any, context: IContext) => {
-  const token: string = await methodPost(URL_USER, '/login', data, context.token);
-  return token;
-};
+import { getUsers, login, register } from '../model/user';
 
 export const resolvers = {
   Query: {
-    getBand,
-    getArtist,
+    getBands,
+    getArtists,
+    getUsers,
   },
   Band: {
     id: (parent: { _id: string; }) => parent._id,

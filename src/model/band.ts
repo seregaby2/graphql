@@ -5,7 +5,7 @@ import { methodPost } from '../utils/post';
 import { methodUpdate } from '../utils/update';
 import { URL_BAND } from '../variables';
 
-export const getBand = async () => {
+export const getBands = async () => {
   const res: IBand[] = await methodGet(URL_BAND);
   return res;
 };

@@ -5,7 +5,7 @@ import { methodPost } from '../utils/post';
 import { methodUpdate } from '../utils/update';
 import { URL_ARTIST } from '../variables';
 
-export const getArtist = async () => {
+export const getArtists = async () => {
   const res: IArtists[] = await methodGet(URL_ARTIST);
   return res;
 };

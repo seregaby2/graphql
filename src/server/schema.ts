@@ -2,8 +2,10 @@ import { gql } from 'apollo-server';
 
 export const typeDefs = gql`
 type Query {
-  getBand: [Band],
-  getArtist: [Artist]
+  getBands: [Band],
+  getArtists: [Artist]
+  getUsrs: [User]
+
 }
 
 
