@@ -11,12 +11,23 @@ export interface IArtists {
 }
 
 export interface IBand {
-
-  _id: string;
+  id?: string;
   name: string;
-  origin: string;
-  membersId: string[];
-  website: string;
-  genresIds: string[];
+  origin?: string;
+  membersId?: string[];
+  website?: string;
+  genresIds?: string[];
 
+}
+
+export interface IUser {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  email: string;
+}
+
+export interface IContext {
+  token: string
 }
