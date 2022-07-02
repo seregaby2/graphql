@@ -3,8 +3,8 @@ import { methodGet } from '../service/get';
 import { methodPost } from '../service/post';
 import { URL } from '../variables';
 
-export const getUsers = async () => {
-  const res: IArtists[] = await methodGet(URL.URL_USER);
+export const getUsers = async (_:null, data:IUser, context: IContext) => {
+  const res: IArtists[] = await methodGet(URL.URL_USER, data, context.token);
   return res;
 };
 

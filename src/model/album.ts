@@ -5,8 +5,13 @@ import { methodPost } from '../service/post';
 import { methodUpdate } from '../service/update';
 import { URL } from '../variables';
 
-export const getAlbum = async () => {
-  const res: IAlbum[] = await methodGet(URL.URL_ALBUM);
+export const getAlbums = async (_:null, data:IAlbum, context: IContext) => {
+  const res: IAlbum[] = await methodGet(URL.URL_ALBUM, data, context.token);
+  return res;
+};
+
+export const getAlbum = async (_:null, data:IAlbum, context: IContext) => {
+  const res: IAlbum = await methodGet(URL.URL_ALBUM, data, context.token);
   return res;
 };
 

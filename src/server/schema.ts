@@ -3,12 +3,19 @@ import { gql } from 'apollo-server';
 export const typeDefs = gql`
 type Query {
   getBands: [Band],
-  getArtists: [Artist]
-  getUsers: User
-  getGenre: [Genre]
-  getAlbum: [Album]
-  getTrack: [Track]
-  getFavourites: [Favourites]
+  getArtists: [Artist],
+  getUsers: User,
+  getGenres: [Genre],
+  getAlbums: [Album],
+  getTracks: [Track],
+  getFavourites: [Favourites],
+  getBand(id: String!): Band
+  getUser(id: String!): User
+  getAlbum(id: String!): Album
+  getArtist(id: String!): Artist
+  getGenre(id: String!): Genre
+  getTrack(id: String!): Track
+  getFavourite(id: String!): Favourites
 
 }
 

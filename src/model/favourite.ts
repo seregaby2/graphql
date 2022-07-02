@@ -4,8 +4,13 @@ import { methodGet } from '../service/get';
 import { methodUpdate } from '../service/update';
 import { URL } from '../variables';
 
-export const getFavourites = async () => {
-  const res: IFavorite[] = await methodGet(URL.URL_FAVOURITE);
+export const getFavourites = async (_:null, data: IFavouriteTrack, context: IContext) => {
+  const res: IFavorite[] = await methodGet(URL.URL_FAVOURITE, data, context.token);
+  return res;
+};
+
+export const getFavourite = async (_:null, data:IFavouriteTrack, context: IContext) => {
+  const res: IFavouriteTrack = await methodGet(URL.URL_FAVOURITE, data, context.token);
   return res;
 };
 

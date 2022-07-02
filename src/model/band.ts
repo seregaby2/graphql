@@ -5,8 +5,13 @@ import { methodPost } from '../service/post';
 import { methodUpdate } from '../service/update';
 import { URL } from '../variables';
 
-export const getBands = async () => {
-  const res: IBand[] = await methodGet(URL.URL_BAND);
+export const getBands = async (_:null, data:IBand, context: IContext) => {
+  const res: IBand[] = await methodGet(URL.URL_BAND, data, context.token);
+  return res;
+};
+
+export const getBand = async (_:null, data:IBand, context: IContext) => {
+  const res: IBand = await methodGet(URL.URL_BAND, data, context.token);
   return res;
 };
 

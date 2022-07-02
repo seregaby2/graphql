@@ -1,13 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 import { IId } from '../interface';
 import {
-  createAlbum, deleteAlbum, getAlbum, updateAlbum,
+  createAlbum, deleteAlbum, getAlbum, getAlbums, updateAlbum,
 } from '../model/album';
 import {
-  createArtist, deleteArtist, getArtists, updateArtist,
+  createArtist, deleteArtist, getArtist, getArtists, updateArtist,
 } from '../model/artist';
 import {
-  createBand, deleteBand, getBands, updateBand,
+  createBand, deleteBand, getBand, getBands, updateBand,
 } from '../model/band';
 import {
   addArtistToFavourites,
@@ -18,13 +18,14 @@ import {
   deleteBandFromFavourites,
   deleteGenreFromFavourites,
   deleteTrackFromFavourites,
+  getFavourite,
   getFavourites,
 } from '../model/favourite';
 import {
-  createGenre, deleteGenre, getGenre, updateGenre,
+  createGenre, deleteGenre, getGenre, getGenres, updateGenre,
 } from '../model/genre';
 import {
-  createTrack, deleteTrack, getTrack, updateTrack,
+  createTrack, deleteTrack, getTrack, getTracks, updateTrack,
 } from '../model/track';
 import { getUsers, login, register } from '../model/user';
 
@@ -33,10 +34,16 @@ export const resolvers = {
     getBands,
     getArtists,
     getUsers,
-    getGenre,
-    getAlbum,
-    getTrack,
+    getGenres,
+    getAlbums,
+    getTracks,
     getFavourites,
+    getBand,
+    getAlbum,
+    getArtist,
+    getFavourite,
+    getGenre,
+    getTrack,
   },
   Band: {
     id: (parent: IId) => parent._id,

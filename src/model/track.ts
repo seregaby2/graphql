@@ -5,8 +5,13 @@ import { methodPost } from '../service/post';
 import { methodUpdate } from '../service/update';
 import { URL } from '../variables';
 
-export const getTrack = async () => {
-  const res: ITrack[] = await methodGet(URL.URL_TRACK);
+export const getTracks = async (_:null, data:ITrack, context: IContext) => {
+  const res: ITrack[] = await methodGet(URL.URL_TRACK, data, context.token);
+  return res;
+};
+
+export const getTrack = async (_:null, data:ITrack, context: IContext) => {
+  const res: ITrack = await methodGet(URL.URL_TRACK, data, context.token);
   return res;
 };
 
