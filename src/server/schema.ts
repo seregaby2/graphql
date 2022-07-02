@@ -8,6 +8,7 @@ type Query {
   getGenre: [Genre]
   getAlbum: [Album]
   getTrack: [Track]
+  getFavourites: [Favourites]
 
 }
 
@@ -35,6 +36,16 @@ type Mutation {
   createTrack(title: String!, albumId: String, bandsIds: [String], artistsIds: [String], duration: Int!, released: Int!, genresIds: [String!]): Track
   updateTrack(title: String!, albumId: String, bandsIds: [String], artistsIds: [String], duration: Int!, released: Int!, genresIds: [String!]): Track
   deleteTrack(id: String!): Track
+
+  addTrackToFavourites(id: String!, type: String!): Favourites
+  addBandToFavourites(id: String!, type: String!): Favourites
+  addArtistToFavourites(id: String!, type: String!): Favourites
+  addGenreToFavourites(id: String!, type: String!): Favourites
+
+  deleteTrackFromFavourites(id: String!): Favourites
+  deleteBandFromFavourites(id: String!): Favourites
+  deleteArtistFromFavourites(id: String!): Favourites
+  deleteGenreFromFavourites(id: String!): Favourites
 }
 
 type Artist {
@@ -87,6 +98,13 @@ type Track {
   duration: Int
   released: Int
   genres: [Genre]
+}
+type Favourites {
+  userId: String
+  bandsIds: [String]
+  genresIds: [String]
+  artistsIds: [String]
+  tracksIds: [String]
 }
 type Jwt {
   jwt: String!

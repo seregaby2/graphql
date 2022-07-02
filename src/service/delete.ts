@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 import {
   IAlbum,
-  IArtists, IBand, IGenre, IUser,
+  IArtists, IBand, IFavorite, IGenre, ITrack, IUser,
 } from '../interface';
 
 export const methodDelete = async (
   url: string,
   path: string,
-  data: IBand | IArtists | IUser | IGenre | IAlbum,
+  data: IBand | IArtists | IUser | IGenre | IAlbum | ITrack | IFavorite,
   token: string,
 ) => {
   const res = await fetch(`${url}${path}/${data.id}`, {

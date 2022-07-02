@@ -57,8 +57,22 @@ export interface ITrack {
   genresIds: string[];
 }
 
+export interface IFavorite {
+  id: string;
+  userId: string;
+  bandsIds: string[];
+  genresIds: string[];
+  artistsIds: string[];
+  tracksIds: string[];
+}
+
 export interface IContext {
   token: string
+}
+
+export interface IFavouriteTrack {
+  id: string;
+  type: string;
 }
 
 export interface IId {

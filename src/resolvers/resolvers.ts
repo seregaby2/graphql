@@ -10,6 +10,17 @@ import {
   createBand, deleteBand, getBands, updateBand,
 } from '../model/band';
 import {
+  addArtistToFavourites,
+  addBandToFavourites,
+  addGenreToFavourites,
+  addTrackToFavourites,
+  deleteArtistFromFavourites,
+  deleteBandFromFavourites,
+  deleteGenreFromFavourites,
+  deleteTrackFromFavourites,
+  getFavourites,
+} from '../model/favourite';
+import {
   createGenre, deleteGenre, getGenre, updateGenre,
 } from '../model/genre';
 import {
@@ -25,6 +36,7 @@ export const resolvers = {
     getGenre,
     getAlbum,
     getTrack,
+    getFavourites,
   },
   Band: {
     id: (parent: IId) => parent._id,
@@ -62,5 +74,13 @@ export const resolvers = {
     createTrack,
     updateTrack,
     deleteTrack,
+    addTrackToFavourites,
+    addBandToFavourites,
+    addGenreToFavourites,
+    addArtistToFavourites,
+    deleteBandFromFavourites,
+    deleteGenreFromFavourites,
+    deleteTrackFromFavourites,
+    deleteArtistFromFavourites,
   },
 };
