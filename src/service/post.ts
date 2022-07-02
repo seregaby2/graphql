@@ -1,12 +1,13 @@
 import fetch from 'node-fetch';
 import {
+  IAlbum,
   IArtists, IBand, IGenre, IUser,
 } from '../interface';
 
 export const methodPost = async (
   url: string,
   path:string,
-  data:IBand | IArtists | IUser | IGenre,
+  data:IBand | IArtists | IUser | IGenre | IAlbum,
   token: string,
 ) => {
   const res = await fetch(`${url}${path}`, {

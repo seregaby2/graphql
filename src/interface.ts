@@ -36,6 +36,31 @@ export interface IGenre {
   year?: number;
 }
 
+export interface IAlbum {
+  id: string;
+  name: string;
+  released: number;
+  artistsIds: string[];
+  bandsIds: string[];
+  trackIds: string[];
+  genresIds: string[];
+  image: string;
+}
+
+export interface ITrack {
+  id: string;
+  title: string;
+  albumId: string;
+  bandsIds: string[];
+  duration: number;
+  released: number;
+  genresIds: string[];
+}
+
 export interface IContext {
   token: string
+}
+
+export interface IId {
+  _id: string
 }

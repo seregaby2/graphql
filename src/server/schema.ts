@@ -6,6 +6,8 @@ type Query {
   getArtists: [Artist]
   getUsers: User
   getGenre: [Genre]
+  getAlbum: [Album]
+  getTrack: [Track]
 
 }
 
@@ -25,6 +27,14 @@ type Mutation {
   createGenre(name: String!, description: String, country: String, year: Int): Genre
   updateGenre(name: String, description: String, country: String, year: Int): Genre
   deleteGenre(id: String!): Genre
+
+  createAlbum(name: String!, released: String, artistsIds: [ID], bandsIDS: [ID], trackIds: [ID], genresIds: [ID]): Album
+  updateAlbum(id: ID!, name: String, released: String, artistsIds: [String], bandsIds: [String], trackIds: [String], genresIds: [String]): Album
+  deleteAlbum(id: ID!): Album
+
+  createTrack(title: String!, albumId: String, bandsIds: [String], artistsIds: [String], duration: Int!, released: Int!, genresIds: [String!]): Track
+  updateTrack(title: String!, albumId: String, bandsIds: [String], artistsIds: [String], duration: Int!, released: Int!, genresIds: [String!]): Track
+  deleteTrack(id: String!): Track
 }
 
 type Artist {
@@ -42,7 +52,6 @@ type Band {
   id: ID!
   name: String
   origin: String
-  members: String
   website: String
   genres: [String]
 }
@@ -59,6 +68,25 @@ type Genre {
   description: String
   country: String
   year: Int
+}
+type Album {
+  id: ID!
+  name: String
+  released: Int
+  artists: [Artist]
+  bands: [Band]
+  tracks: [Track]
+  genres: [Genre]
+  image: String
+}
+type Track {
+  id: ID!
+  title: String!
+  albums: [Album]
+  bands: [Band]
+  duration: Int
+  released: Int
+  genres: [Genre]
 }
 type Jwt {
   jwt: String!

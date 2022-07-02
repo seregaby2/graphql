@@ -1,6 +1,6 @@
 import { IArtists, IContext, IUser } from '../interface';
-import { methodGet } from '../utils/get';
-import { methodPost } from '../utils/post';
+import { methodGet } from '../service/get';
+import { methodPost } from '../service/post';
 import { URL } from '../variables';
 
 export const getUsers = async () => {

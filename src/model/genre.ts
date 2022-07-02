@@ -1,8 +1,8 @@
 import { IContext, IGenre } from '../interface';
-import { methodDelete } from '../utils/delete';
-import { methodGet } from '../utils/get';
-import { methodPost } from '../utils/post';
-import { methodUpdate } from '../utils/update';
+import { methodDelete } from '../service/delete';
+import { methodGet } from '../service/get';
+import { methodPost } from '../service/post';
+import { methodUpdate } from '../service/update';
 import { URL } from '../variables';
 
 export const getGenre = async () => {
