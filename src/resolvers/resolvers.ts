@@ -63,6 +63,9 @@ export const resolvers = {
   Track: {
     id: (parent: IId) => parent._id,
   },
+  Favourites: {
+    id: (parent: IId) => parent._id,
+  },
   Mutation: {
     register,
     login,

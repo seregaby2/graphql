@@ -20,6 +20,5 @@ export const methodPost = async (
     },
   });
   const response = await res.json();
-  console.log(response);
   return response;
 };
